@@ -1,4 +1,5 @@
-# HEAD
+# 0.4.0
+- [#42] Support "Employee": findAll, find_all_by_ids and find_by_id
 - [#41] Added config option `read_timeout` to changed default timeout to 60
 
 # 0.3.0
