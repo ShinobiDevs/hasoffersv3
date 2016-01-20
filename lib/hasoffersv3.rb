@@ -3,7 +3,7 @@ require 'json'
 
 require 'hasoffersv3/client'
 
-%w!base affiliate response conversion raw_log report configuration advertiser advertiser_user offer offer_pixel application!.each do |file|
+%w!base affiliate response conversion raw_log report configuration advertiser advertiser_user offer offer_pixel employee application!.each do |file|
   require "hasoffersv3/#{file}"
 end
 
@@ -21,6 +21,7 @@ class HasOffersV3
     affiliate_offers: HasOffersV3::AffiliateOffer,
     affiliate_billing: HasOffersV3::AffiliateBilling,
     conversions: HasOffersV3::Conversion,
+    employee: HasOffersV3::Employee,
     offers: HasOffersV3::Offer,
     offer_pixels: HasOffersV3::OfferPixel,
     raw_logs: HasOffersV3::RawLog,
