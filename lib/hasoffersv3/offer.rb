@@ -39,6 +39,11 @@ class HasOffersV3
       post_request 'setPayout', params
     end
 
+    def set_tier_payout(params = {})
+      requires! params, [:id, :affiliate_tier_id]
+      post_request 'setTierPayout', params
+    end
+
     def remove_payout(params = {})
       requires! params, [:id, :affiliate_id]
       post_request 'removePayout', params

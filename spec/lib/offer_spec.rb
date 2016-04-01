@@ -112,6 +112,21 @@ describe HasOffersV3::Offer do
     end
   end
 
+  describe '.set_tier_payout' do
+    it 'should make a proper request call' do
+      stub_call
+      response = HasOffersV3::Offer.set_tier_payout id: 1, affiliate_tier_id: 2
+      expect(a_request(:post, url).with(body: hash_including({'Method' => 'setTierPayout'}))).to have_been_made
+      validate_call response
+    end
+
+    context 'when the id and/or affiliate tier id parameters are missing' do
+      it 'raises an exception' do
+        expect {  HasOffersV3::Offer.set_tier_payout }.to raise_error ArgumentError
+      end
+    end
+  end
+
   describe '.remove_payout' do
     it 'should make a proper request call' do
       stub_call
