@@ -25,7 +25,12 @@ class HasOffersV3
         http              = new_http(uri)
         raw_request       = Net::HTTP::Get.new(uri.request_uri)
       end
+
+      logger.log_request(raw_request, uri)
+
       http_response = execute_request(http, raw_request)
+
+      logger.log_response(http_response)
 
       Response.new(http_response, @configuration.json_driver)
     end
@@ -58,6 +63,12 @@ class HasOffersV3
 
     def base_uri
       configuration.base_uri
+    end
+
+    private
+
+    def logger
+      configuration.http_logger
     end
 
   end

@@ -70,6 +70,20 @@ HasOffersV3::Advertiser.signup({
 })
 ```
 
+### Logging
+
+To enable log you can set a logger in configuration. All HTTP requests and responses will be logged.
+
+To disable it, just set the logger configuration to `nil` value. Default is disabled.
+
+An example setting Rails logger:
+
+```ruby
+HasOffersV3.configure do |config|
+  config.logger = Rails.logger
+end
+```
+
 ## Testing
 
 If `RAILS_ENV` or `RACK_ENV` is set to `test`, or there's a `TEST`

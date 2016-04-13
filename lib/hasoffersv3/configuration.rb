@@ -19,7 +19,8 @@ class HasOffersV3
       base_path: '/v3',
       network_id: '',
       api_key: '',
-      json_driver: self.default_json_driver
+      json_driver: self.default_json_driver,
+      logger: nil
     }.freeze
 
     DEFAULTS.keys.each do |option_name|
@@ -47,6 +48,10 @@ class HasOffersV3
       defaults.keys.each do |key|
         @options[key] = defaults[key] if @options[key].nil?
       end
+    end
+
+    def http_logger
+      @http_logger ||= HasOffersV3::Logger.new(logger)
     end
 
     def base_uri
