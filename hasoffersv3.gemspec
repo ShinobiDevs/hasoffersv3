@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'activesupport' # for to_param method
   s.add_development_dependency 'webmock'
-  s.add_development_dependency 'rspec',   '~> 3.0.0'
+  s.add_development_dependency 'rspec',   '~> 3.4.0'
   s.add_development_dependency 'bundler', '~> 1.3'
   s.add_development_dependency 'rake'
 end

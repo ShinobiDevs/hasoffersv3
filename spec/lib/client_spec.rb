@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe HasOffersV3::Client do
 
   describe '#base_uri' do
@@ -11,7 +9,7 @@ describe HasOffersV3::Client do
       result
     }
 
-    it 'should be different configs' do
+    it 'has different configs' do
       default_connection = HasOffersV3::Client.new(configuration_to_default_host)
       expect(default_connection.base_uri).to eq('https://api.hasoffers.com/v3')
 
