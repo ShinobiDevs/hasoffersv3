@@ -98,4 +98,14 @@ describe HasOffersV3::AffiliateOffer do
     end
   end
 
+  describe '#find_my_approved_ffers' do
+    it 'makes a proper request call' do
+      stub_call :get, nil, Regexp.new(url)
+      response = subject.find_my_approved_offers
+      expect(a_request(:get, url).with(query: hash_including({'Method' => 'findMyApprovedOffers'}))).to have_been_made
+
+      validate_call response
+    end
+  end
+
 end
