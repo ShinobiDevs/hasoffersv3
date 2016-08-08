@@ -11,7 +11,7 @@ class HasOffersV3
     end
 
     def request(http_method, target, method, params)
-      data = build_request_params(method, params)
+      data = build_request_params(method, target, params)
 
       target_uri = "#{base_uri}/#{target}.json"
 
@@ -39,12 +39,13 @@ class HasOffersV3
       net_http.request raw_request
     end
 
-    def build_request_params(method, params)
+    def build_request_params(method, target, params)
       params['Method'] = method
       {
         NetworkId: configuration.network_id,
         NetworkToken: configuration.api_key,
-        api_key: configuration.api_key
+        api_key: configuration.api_key,
+        Target: target
       }.merge(params)
     end
 

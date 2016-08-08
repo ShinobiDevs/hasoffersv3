@@ -16,7 +16,7 @@ class HasOffersV3
       host: 'api.hasoffers.com',
       protocol: 'https',
       read_timeout: 60,
-      base_path: '/v3',
+      base_path: '/Apiv3',
       network_id: '',
       api_key: '',
       json_driver: self.default_json_driver,
